@@ -10,10 +10,10 @@ The project supports **multi-environment deployment (dev & prod)** with automate
 
 ##  Architecture
 
-```
+
 <img width="620" height="422" alt="image" src="https://github.com/user-attachments/assets/c5c6017e-13ad-4189-bec3-fc1e963fc0da" />
 
-```
+
 
 ---
 
@@ -28,10 +28,10 @@ The project supports **multi-environment deployment (dev & prod)** with automate
 
 ## 📁 Project Structure
 
-```
+
 <img width="779" height="422" alt="image" src="https://github.com/user-attachments/assets/5ec5a625-6abc-4d14-aac3-e8bbcfabe6e4" />
 
-```
+
 
 ---
 
@@ -141,10 +141,10 @@ Terraform Code → Checkov Scan → Plan → Approval → Apply
 
 ## 🔄 CI/CD Workflow
 
-```
+
 <img width="835" height="427" alt="image" src="https://github.com/user-attachments/assets/0d3c3794-86a4-4236-b40f-579f1fa9639c" />
 
-```
+
 
 ---
 
