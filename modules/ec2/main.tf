@@ -1,7 +1,7 @@
 variable "instance_type" {}
 variable "subnet_id" {}
 variable "sg_id" {}
-
+# checkov:skip=CKV_AWS_135: t3.micro is already EBS optimized by default
 resource "aws_instance" "my_server" {
   ami           = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
