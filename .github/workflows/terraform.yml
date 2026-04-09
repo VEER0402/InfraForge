@@ -23,6 +23,12 @@ jobs:
       - run: terraform init
         working-directory: env/dev
 
+      - name: Install Checkov
+  	run: pip install checkov
+
+      - name: Run Checkov Scan
+ 	run: checkov -d .--soft-fail false
+
       - run: terraform plan
         working-directory: env/dev
 
