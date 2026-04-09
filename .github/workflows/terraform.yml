@@ -9,28 +9,30 @@ jobs:
   plan:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+  steps:
+  - uses: actions/checkout@v3
 
-      - uses: hashicorp/setup-terraform@v3
+  - uses: hashicorp/setup-terraform@v3
 
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
+  - uses: aws-actions/configure-aws-credentials@v4
+    with:
+      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      aws-region: us-east-1
 
-      - run: terraform init
-        working-directory: env/dev
+  - name: Terraform Init
+    run: terraform init
+    working-directory: env/dev
 
-      - name: Install Checkov
-  	run: pip install checkov
+  - name: Install Checkov
+    run: pip install checkov
 
-      - name: Run Checkov Scan
- 	run: checkov -d .--soft-fail false
+  - name: Run Checkov Scan
+    run: checkov -d . --soft-fail false
 
-      - run: terraform plan
-        working-directory: env/dev
+  - name: Terraform Plan
+    run: terraform plan
+    working-directory: env/dev
 
   apply:
     needs: plan
