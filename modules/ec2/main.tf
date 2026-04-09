@@ -19,6 +19,17 @@ resource "aws_instance" "my_server" {
               sudo systemctl enable nginx
               EOF
 
+  # ✅ ADD THIS (no hardcoding, safe)
+  monitoring = true
+
+  metadata_options {
+    http_tokens = "required"
+  }
+
+  root_block_device {
+    encrypted = true
+  }
+
   tags = {
     Name = "InfraForge-EC2"
   }
